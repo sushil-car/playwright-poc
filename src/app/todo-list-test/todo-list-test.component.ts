@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
 import { NgForOf } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-todo-list-test',
   imports: [
-    NgForOf
+    NgForOf,
+    FormsModule
   ],
   templateUrl: './todo-list-test.component.html',
-  styleUrl: './todo-list-test.component.scss'
+  styleUrl: './todo-list-test.component.scss',
+  standalone: true
 })
 export class TodoListTestComponent {
   todos: string[] = [];
