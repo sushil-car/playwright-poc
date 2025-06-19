@@ -1,0 +1,12 @@
+<p>todo-list-test works!</p>
+
+<ul>
+  <li *ngFor="let todo of todos; let i = index">
+    {{ todo }}
+    <button (click)="removeTodo(i)">Remove Todo</button>
+    <button (click)="toggleTodo(i)">Toggle Todo</button>
+  </li>
+</ul>
+
+<button (click)="addTodo()">Add Todo</button>
+<button (click)="clearTodos()">Clear Todos</button>
