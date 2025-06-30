@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'mcr.microsoft.com/playwright:v1.43.1-jammy'
+            image 'mcr.microsoft.com/playwright:v1.43.1-jammy-with-deps'
         }
     }
     environment {
@@ -15,7 +15,6 @@ pipeline {
         }
         stage('Run Playwright Tests') {
             steps {
-                sh 'npx playwright install chrome'
                 sh 'npx playwright test'
             }
         }
