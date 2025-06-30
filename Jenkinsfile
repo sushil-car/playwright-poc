@@ -1,13 +1,20 @@
 pipeline {
-    agent any
-
+    agent {
+        docker {
+            image 'mcr.microsoft.com/playwright:v1.43.1-jammy'
+            args '-p 4200:4200' // Expose Angular default port
+        }
+    }
+    environment {
+        CI = 'true'
+    }
     stages {
-        stage('Hello World') {
+        stage('Install Dependencies') {
             steps {
-                sh 'echo "Hello World"'
+                sh 'npm ci || yarn install'
             }
         }
-        stage('Test') {
+        stage('Run Playwright Tests') {
             steps {
                 sh 'npx playwright test'
             }
