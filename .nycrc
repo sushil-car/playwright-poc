@@ -1,0 +1,7 @@
+{
+  "include": ["src/**/*.js", "src/**/*.ts"],
+  "exclude": ["**/*.spec.js", "**/*.spec.ts", "test/**", "node_modules/**"],
+  "reporter": ["html", "text-summary"],
+  "all": true,
+  "extension": [".js", ".ts"]
+}
