@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Run Playwright Tests') {
             steps {
-                she 'npx playwright install chrome'
+                sh 'npx playwright install chrome'
                 sh 'npx playwright test'
             }
         }
