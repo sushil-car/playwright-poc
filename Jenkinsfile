@@ -2,7 +2,6 @@ pipeline {
     agent {
         docker {
             image 'mcr.microsoft.com/playwright:v1.43.1-jammy'
-            args '-p 4200:4200' // Expose Angular default port
         }
     }
     environment {
@@ -16,6 +15,7 @@ pipeline {
         }
         stage('Run Playwright Tests') {
             steps {
+                she 'npx playwright install chrome'
                 sh 'npx playwright test'
             }
         }
