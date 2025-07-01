@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Install Dependencies') {
             steps {
-                sh 'npm ci || yarn install'
+                sh 'yarn install --frozen-lockfile'
             }
         }
         stage('Run Playwright Tests') {
