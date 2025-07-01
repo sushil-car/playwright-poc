@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'mcr.microsoft.com/playwright:v1.48.0-jammy'
+            image 'my-playwright-node20:latest'
         }
     }
     environment {
