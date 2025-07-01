@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Run Playwright Tests') {
             steps {
-              sh "yarn run test:playwright"
+                sh "npx playwright test --project='chromium'"
             }
         }
     }
