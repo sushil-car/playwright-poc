@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Run Playwright Tests') {
             steps {
-                sh 'npx playwright test'
+              sh "./node_modules/.bin/playwright test"
             }
         }
     }
