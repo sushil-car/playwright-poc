@@ -13,5 +13,10 @@ pipeline {
                 sh "npx playwright test --project='chromium'"
             }
         }
+        stage('Clean up') {
+            steps {
+                cleanWs()
+            }
+        }
     }
 }
