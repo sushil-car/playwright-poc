@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'my-playwright-node20:latestsds'
+            image 'my-playwright-node20:latest'
         }
     }
     environment {
