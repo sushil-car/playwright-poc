@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Run Playwright Tests') {
             steps {
-              sh "./node_modules/.bin/playwright test"
+              sh "yarn run test:playwright"
             }
         }
     }

@@ -11,7 +11,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "nycpretest:e2e": "nyc instrument ./src ./instrumented",
-    "nyctest:e2e": "PLAYWRIGHT_TEST_DIR=./instrumented npx playwright test"
+    "nyctest:e2e": "PLAYWRIGHT_TEST_DIR=./instrumented npx playwright test",
+    "test:playwright": "npx playwright test"
   },
   "private": true,
   "dependencies": {
