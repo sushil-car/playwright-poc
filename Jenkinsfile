@@ -13,9 +13,8 @@ pipeline {
         stage('Run Playwright Tests') {
             steps {
                 sh 'ls -la'
-                sh 'cd /workspace && yarn install'
-                sh 'cd /workspace && npx playwright test --project="chromium"'
-//                 sh "npx playwright test --project='chromium'"
+                sh 'yarn install --frozen-lockfile'
+                sh "npx playwright test --project='chromium'"
                 echo 'Playwright tests completed'
                 sh 'ls -la'
             }
