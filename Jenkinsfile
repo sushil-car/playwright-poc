@@ -2,6 +2,7 @@ pipeline {
     agent {
         docker {
             image 'mcr.microsoft.com/playwright:v1.53.2-noble'
+            args '-v $WORKSPACE:/workspace'
         }
     }
     environment {
@@ -12,7 +13,9 @@ pipeline {
         stage('Run Playwright Tests') {
             steps {
                 sh 'ls -la'
-                sh "npx playwright test --project='chromium'"
+                sh 'cd /workspace && yarn install'
+                sh 'cd /workspace && npx playwright test --project="chromium"'
+//                 sh "npx playwright test --project='chromium'"
                 echo 'Playwright tests completed'
                 sh 'ls -la'
             }
