@@ -22,7 +22,7 @@ pipeline {
         stage('Publish Playwright HTML Report') {
             steps {
                 publishHTML(target: [
-                    reportDir: 'playwright-report/html/',
+                    reportDir: 'playwright-report',
                     reportFiles: 'index.html',
                     reportName: 'Playwright Test Report',
                     keepAll: true,
