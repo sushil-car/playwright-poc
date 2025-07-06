@@ -29,10 +29,10 @@ pipeline {
             }
         }
         stage('Clean up') {
-            sh 'ls -la'
-//             steps {
-//                 cleanWs()
-//             }
+            steps {
+              sh 'ls -la'
+//               cleanWs()
+            }
         }
     }
 }
