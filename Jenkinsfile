@@ -6,6 +6,7 @@ pipeline {
     }
     environment {
         CI = 'true'
+        NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
     }
     stages {
         stage('Run Playwright Tests') {
