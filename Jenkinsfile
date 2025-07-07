@@ -5,9 +5,6 @@ pipeline {
             args '-v $WORKSPACE:/workspace'
         }
     }
-    options {
-        timestamps()
-    }
     environment {
         CI = 'true'
         NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
