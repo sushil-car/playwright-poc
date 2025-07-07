@@ -7,7 +7,7 @@ pipeline {
     }
     environment {
         CI = 'true'
-        env.FORCE_COLOR = "false"
+        FORCE_COLOR = "false"
         NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
     }
     stages {
