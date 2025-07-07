@@ -22,6 +22,8 @@ pipeline {
         }
         stage('Publish Playwright HTML Report') {
             steps {
+                sh 'echo "Stage: Publish Playwright HTML Report - $(date)"'
+
                 publishHTML(target: [
                     reportDir: 'playwright-report',
                     reportFiles: 'index.html',
