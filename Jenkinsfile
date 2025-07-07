@@ -14,14 +14,12 @@ pipeline {
     }
     stages {
         stage('Run Playwright Tests') {
-            timestamps {
-                steps {
-                    sh 'ls -la'
-                    sh 'yarn install --frozen-lockfile'
-                    sh "npx playwright test --project='chromium'"
-                    echo 'Playwright tests completed'
-                    sh 'ls -la'
-                }
+            steps {
+                sh 'ls -la'
+                sh 'yarn install --frozen-lockfile'
+                sh "npx playwright test --project='chromium'"
+                echo 'Playwright tests completed'
+                sh 'ls -la'
             }
         }
         stage('Publish Playwright HTML Report') {
