@@ -23,7 +23,7 @@ test.describe('TodoListTestComponent', () => {
   test('should add a new todo', async ({ page }) => {
     await page.getByPlaceholder('Add new todo').fill('Buy milk');
     await page.getByRole('button', { name: /add/i }).click();
-    await expect(page.getByText('Buy milk')).toBeVisible();
+    await expect(page.getByText('Buy milk test')).toBeVisible();
   });
 
   test('should remove a todo', async ({ page }) => {
