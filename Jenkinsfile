@@ -19,21 +19,35 @@ pipeline {
                 echo 'Playwright tests completed'
                 sh 'ls -la'
             }
-        }
-        stage('Publish Playwright HTML Report') {
-            steps {
-                sh 'echo "Stage: Publish Playwright HTML Report - $(date)"'
+            post {
+                always {
+                    echo "Publish Playwright HTML Report"
 
-                publishHTML(target: [
-                    reportDir: 'playwright-report',
-                    reportFiles: 'index.html',
-                    reportName: 'Playwright tests report',
-                    keepAll: true,
-                    alwaysLinkToLastBuild: true,
-                    allowMissing: true
-                ])
-            }
+                    publishHTML(target: [
+                        reportDir: 'playwright-report',
+                        reportFiles: 'index.html',
+                        reportName: 'Playwright tests report',
+                        keepAll: true,
+                        alwaysLinkToLastBuild: true,
+                        allowMissing: true
+                    ])
+                }
+           }
         }
+//         stage('Publish Playwright HTML Report') {
+//             steps {
+//                 sh 'echo "Stage: Publish Playwright HTML Report - $(date)"'
+//
+//                 publishHTML(target: [
+//                     reportDir: 'playwright-report',
+//                     reportFiles: 'index.html',
+//                     reportName: 'Playwright tests report',
+//                     keepAll: true,
+//                     alwaysLinkToLastBuild: true,
+//                     allowMissing: true
+//                 ])
+//             }
+//         }
         stage('Clean up') {
             steps {
               sh 'ls -la'
