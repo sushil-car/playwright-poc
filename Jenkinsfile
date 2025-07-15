@@ -22,7 +22,7 @@ pipeline {
             post {
                 always {
                     echo "Publish Playwright HTML Report"
-
+                    // System.setProperty('hudson.model.DirectoryBrowserSupport.CSP', "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';")
                     publishHTML(target: [
                         reportDir: 'playwright-report',
                         reportFiles: 'index.html',
