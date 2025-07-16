@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import { V8CoverageEntry } from 'monocart-reporter';
 // import { defineCoverageReporterConfig } from '@bgotink/playwright-coverage';
 // import path from 'path';
 // import { V8CoverageEntry } from 'monocart-reporter';
@@ -27,44 +28,44 @@ export default defineConfig({
   workers: process.env.CI ? 1 : 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   // reporter: 'html',
-  reporter: [['list'], ['html']],
-  // reporter: [
-  //   ['list'],
-  //   [
-  //     'monocart-reporter',
-  //     {
-  //       name: 'My Test Report',
-  //       outputFile: './monocart-report/index.html',
-  //       coverage: {
-  //         logging: 'debug',
-  //         reports: [['codecov'], ['v8'], ['console-summary']],
-  //         entryFilter: (entry: V8CoverageEntry) => {
-  //           console.log('entry url======> ', entry.url);
-  //           return true;
-  //         },
-  //         // sourceFilter: (sourcePath: string) => {
-  //         //   console.log('sourcePath======> ', sourcePath);
-  //         //   return true;
-  //         // },
-  //         // sourceFilter: (sourcePath: string) => {
-  //         //   return (
-  //         //     sourcePath.startsWith('packages/') &&
-  //         //     !sourcePath.includes('node_modules/') && // dependencies.
-  //         //     !sourcePath.includes('build/esm/') && // @shopify/web-worker.
-  //         //     !sourcePath.includes('external-window') && // webpack externals.
-  //         //     !sourcePath.includes('webpack/') && // webpack runtime.
-  //         //     !sourcePath.includes('.css/') && // css js chunks.
-  //         //     !sourcePath.includes('test/')
-  //         //   );
-  //         // },
-  //         sourcePath: (filePath: string) => {
-  //           // Remove project folder.
-  //           return filePath.replace('media-experiments/', '');
-  //         },
-  //       },
-  //     },
-  //   ],
-  // ],
+  // reporter: [['list'], ['html']],
+  reporter: [
+    ['list'],
+    [
+      'monocart-reporter',
+      {
+        name: 'My Test Report',
+        outputFile: './monocart-report/index.html',
+        coverage: {
+          logging: 'debug',
+          reports: [['codecov'], ['v8'], ['console-summary']],
+          entryFilter: (entry: V8CoverageEntry) => {
+            console.log('entry url======> ', entry.url);
+            return true;
+          },
+          // sourceFilter: (sourcePath: string) => {
+          //   console.log('sourcePath======> ', sourcePath);
+          //   return true;
+          // },
+          // sourceFilter: (sourcePath: string) => {
+          //   return (
+          //     sourcePath.startsWith('packages/') &&
+          //     !sourcePath.includes('node_modules/') && // dependencies.
+          //     !sourcePath.includes('build/esm/') && // @shopify/web-worker.
+          //     !sourcePath.includes('external-window') && // webpack externals.
+          //     !sourcePath.includes('webpack/') && // webpack runtime.
+          //     !sourcePath.includes('.css/') && // css js chunks.
+          //     !sourcePath.includes('test/')
+          //   );
+          // },
+          sourcePath: (filePath: string) => {
+            // Remove project folder.
+            return filePath.replace('media-experiments/', '');
+          },
+        },
+      },
+    ],
+  ],
   // reporter: [
   //   ['list'],
   //   [
